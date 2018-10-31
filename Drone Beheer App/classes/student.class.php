@@ -1,19 +1,14 @@
 <?php
 
-
-	//test comment
-
 	include 'functions/dbConnection.php';
 
 	function getStudentNames(){
 
-		$query = $myPDO->query("SELECT NaamStudent FROM database");
+		$query = $Conn->query("SELECT DISTINCT NaamStudent FROM ArrivalChecklist, BatteryChargeLogs, EmbarkationChecklist, FlightLog, IncidentLog, MaintanceLog, OnSiteSurvey, OperationFlightPlan, PostFlightChecklist, PreFlightChecklist, PreSitesSurvey");
 
-		foreach ($result as $row) {
-			
-			print $row['NaamStudent'] . "</br>";
-            
-            $test = "test variable";
+		foreach ($query as $row) {
+				
+				print $row['NaamStudent'] . "</br>";
 
 		}
 		

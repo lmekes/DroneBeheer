@@ -1,5 +1,5 @@
 <?php
 
-	$Conn = new PDO('sqlite:/home/username/database.db'); //Vul username, path + database in
+	$Conn = new mysqli("localhost", "root", "DroneTest");
 
 ?>
