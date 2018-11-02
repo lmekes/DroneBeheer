@@ -1,5 +1,5 @@
 <?php
 
-	$Conn = new mysqli("localhost", "root", "DroneTest");
+	$Conn = new mysqli("localhost", "root", "", "DroneTest");
 
 ?>
