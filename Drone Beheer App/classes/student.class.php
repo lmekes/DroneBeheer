@@ -33,7 +33,7 @@
 
 		while ($data = $result->fetch_assoc()) {
 				
-			echo "<a href='include/studentpage.php?studentName=" . $data['NaamStudent'] . "'>" . $data['NaamStudent'] . "</a></br>";
+			echo "<a href='include/studentpage.php?studentName='" . $data['NaamStudent'] . "'>" . $data['NaamStudent'] . "</a></br>";
 
 		}
 		
