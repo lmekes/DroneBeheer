@@ -39,7 +39,7 @@
 		'Extinguisher'='" . $_POST['extinguisher'] . "', 
 		
 		'Signs'='" . $_POST['signs'] . "' 
-		
+
 		WHERE 'Id'='" . $_POST['id'] . "'";
 
 		$Conn->$query;
@@ -84,35 +84,35 @@
 
 				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='sitesurvey' value='" . $data['SiteSurvey'] . "'></br>
+				<input type='checkbox' name='sitesurvey' value='" . $data['SiteSurvey'] . "'></br>
 				
-				<input type='text' name='flightplan' value='" . $data['FlightPlan'] . "'></br>
+				<input type='checkbox' name='flightplan' value='" . $data['FlightPlan'] . "'></br>
 				
-				<input type='text' name='airframe' value='" . $data['Airframe'] . "'></br>
+				<input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
 				
-				<input type='text' name='camera' value='" . $data['Camera'] . "'></br>
+				<input type='checkbox' name='camera' value='" . $data['Camera'] . "'></br>
 				
-				<input type='text' name='connections' value='" . $data['Connections'] . "'></br>
+				<input type='checkbox' name='connections' value='" . $data['Connections'] . "'></br>
 				
-				<input type='text' name='propellers' value='" . $data['Propellers'] . "'></br>
+				<input type='checkbox' name='propellers' value='" . $data['Propellers'] . "'></br>
 				
-				<input type='text' name='calibrationplatform' value='" . $data['CalibrationPlatform'] . "'></br>
+				<input type='checkbox' name='calibrationplatform' value='" . $data['CalibrationPlatform'] . "'></br>
 				
-				<input type='text' name='groundstation' value='" . $data['GroundStation'] . "'></br>
+				<input type='checkbox' name='groundstation' value='" . $data['GroundStation'] . "'></br>
 				
-				<input type='text' name='monitor' value='" . $data['Monitor'] . "'></br>
+				<input type='checkbox' name='monitor' value='" . $data['Monitor'] . "'></br>
 				
-				<input type='text' name='crewidbadges' value='" . $data['CrewIdBadges'] . "'></br>
+				<input type='checkbox' name='crewidbadges' value='" . $data['CrewIdBadges'] . "'></br>
 				
-				<input type='text' name='hardhat' value='" . $data['HardHat'] . "'></br>
+				<input type='checkbox' name='hardhat' value='" . $data['HardHat'] . "'></br>
 				
-				<input type='text' name='radio' value='" . $data['Radio'] . "'></br>
+				<input type='checkbox' name='radio' value='" . $data['Radio'] . "'></br>
 				
-				<input type='text' name='firstaid' value='" . $data['FirstAid'] . "'></br>
+				<input type='checkbox' name='firstaid' value='" . $data['FirstAid'] . "'></br>
 				
-				<input type='text' name='extinguisher' value='" . $data['Extinguisher'] . "'></br>
+				<input type='checkbox' name='extinguisher' value='" . $data['Extinguisher'] . "'></br>
 				
-				<input type='text' name='signs' value='" . $data['Signs'] . "'></br>
+				<input type='checkbox' name='signs' value='" . $data['Signs'] . "'></br>
 
 				<input type='submit' name='update' value='Update'>
 
