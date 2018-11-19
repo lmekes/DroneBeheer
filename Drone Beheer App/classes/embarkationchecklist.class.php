@@ -4,6 +4,24 @@
 
 	function updateForm($Conn){
 
+		$query = "UPDATE EmbarkationChecklist SET
+
+		NaamStudent='" . $_POST['naamstudent'] . "',
+
+		Datum='" . $_POST['datum'] . "',
+
+		GroundStation='" . $_POST['groundstation'] . "',
+
+		CameraMonitor='" . $_POST['cameramonitor'] . "',
+
+		Receiver='" . $_POST['receiver'] . "',
+
+		TelemetryReceiver='" . $_POST['telemetryreceiver'] . "',
+
+		WHERE Id='" . $_POST['id'] . "'";
+
+		$Conn->query($query);
+
 	}
 
 	if(isset($_POST['update'])){
@@ -26,87 +44,87 @@
 
 				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='checkbox' name='groundstation' value='" . $data[''] . "'></br>
+				Ground Station & Leads: <input type='checkbox' name='groundstation' value='" . $data['GroundStation'] . "'></br>
 
-				<input type='checkbox' name='cameramonitor' value='" . $data[''] . "'></br>
+				Camera Monitor & Leads: <input type='checkbox' name='cameramonitor' value='" . $data['CameraMonitor'] . "'></br>
 
-				<input type='checkbox' name='receiver' value='" . $data[''] . "'></br>
+				A/V Receiver & Leads: <input type='checkbox' name='receiver' value='" . $data['Receiver'] . "'></br>
 
-				<input type='checkbox' name='telemetryreceiver' value='" . $data[''] . "'></br>
+				Telemetery Receiver & Leads: <input type='checkbox' name='telemetryreceiver' value='" . $data['TelemetryReceiver'] . "'></br>
 
-				<input type='checkbox' name='laptop' value='" . $data[''] . "'></br>
+				Laptop & Leads: <input type='checkbox' name='laptop' value='" . $data['Laptop'] . "'></br>
 
-				<input type='checkbox' name='mobilephone' value='" . $data[''] . "'></br>
+				Mobile Phone & Emergency No's: <input type='checkbox' name='mobilephone' value='" . $data['MobilePhone'] . "'></br>
 
-				<input type='checkbox' name='anemometer' value='" . $data[''] . "'></br>
+				Anemometer: <input type='checkbox' name='anemometer' value='" . $data['Anemometer'] . "'></br>
 
-				<input type='checkbox' name='firstaid' value='" . $data[''] . "'></br>
+				First Aid Kit & Extinguisher: <input type='checkbox' name='firstaid' value='" . $data['FirstAid'] . "'></br>
 
-				<input type='checkbox' name='hardhat' value='" . $data[''] . "'></br>
+				Fluorescent Jacket(s) / Hard Hats: <input type='checkbox' name='hardhat' value='" . $data['HardHat'] . "'></br>
 
-				<input type='checkbox' name='radio' value='" . $data[''] . "'></br>
+				Two Way Radios: <input type='checkbox' name='radio' value='" . $data['Radio'] . "'></br>
 
-				<input type='checkbox' name='clothing' value='" . $data[''] . "'></br>
+				Clothing (Boots, Coat, Gloves): <input type='checkbox' name='clothing' value='" . $data['Clothing'] . "'></br>
 
-				<input type='checkbox' name='airnavigationmap' value='" . $data[''] . "'></br>
+				Air Navigation Map: <input type='checkbox' name='airnavigationmap' value='" . $data['AirNavigationMap'] . "'></br>
 
-				<input type='checkbox' name='checklist' value='" . $data[''] . "'></br>
+				Checklists, Manuals & Logbooks: <input type='checkbox' name='checklist' value='" . $data['Checklist'] . "'></br>
 
-				<input type='checkbox' name='notepad' value='" . $data[''] . "'></br>
+				Notepad & Pens: <input type='checkbox' name='notepad' value='" . $data['Notepad'] . "'></br>
 
-				<input type='checkbox' name='siteassessment' value='" . $data[''] . "'></br>
+				Site Assesment Form: <input type='checkbox' name='siteassessment' value='" . $data['SiteAssessment'] . "'></br>
 
-				<input type='checkbox' name='signs' value='" . $data[''] . "'></br>
+				Signs, Safety Tape, Cones: <input type='checkbox' name='signs' value='" . $data['Signs'] . "'></br>
 
-				<input type='checkbox' name='flightbattery' value='" . $data[''] . "'></br>
+				Flight Battery Packs: <input type='checkbox' name='flightbattery' value='" . $data['FlightBattery'] . "'></br>
 
-				<input type='checkbox' name='transmitterbattery' value='" . $data[''] . "'></br>
+				Transmitter Battery Packs: <input type='checkbox' name='transmitterbattery' value='" . $data['TransmitterBattery'] . "'></br>
 
-				<input type='checkbox' name='camerabattery' value='" . $data[''] . "'></br>
+				Camera Battery Packs: <input type='checkbox' name='camerabattery' value='" . $data['CameraBattery'] . "'></br>
 
-				<input type='checkbox' name='stationbattery' value='" . $data[''] . "'></br>
+				Ground Station Battery: <input type='checkbox' name='stationbattery' value='" . $data['StationBattery'] . "'></br>
 
-				<input type='checkbox' name='chargerbattery' value='" . $data[''] . "'></br>
+				Charger Battery Packs: <input type='checkbox' name='chargerbattery' value='" . $data['ChargerBattery'] . "'></br>
 
-				<input type='checkbox' name='phonebattery' value='" . $data[''] . "'></br>
+				Mobile Phone Battery: <input type='checkbox' name='phonebattery' value='" . $data['PhoneBattery'] . "'></br>
 
-				<input type='checkbox' name='airframe' value='" . $data[''] . "'></br>
+				Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
 
-				<input type='checkbox' name='cameramount' value='" . $data[''] . "'></br>
+				Camera Mount: <input type='checkbox' name='cameramount' value='" . $data['CameraMount'] . "'></br>
 
-				<input type='checkbox' name='calibrationplatform' value='" . $data[''] . "'></br>
+				Flight Controller / Transmitter(s): <input type='checkbox' name='calibrationplatform' value='" . $data['CalibrationPlatform'] . "'></br>
 
-				<input type='checkbox' name='cameralens' value='" . $data[''] . "'></br>
+				Calibration Platform: <input type='checkbox' name='cameralens' value='" . $data['CameraLens'] . "'></br>
 
-				<input type='checkbox' name='cameraconnection' value='" . $data[''] . "'></br>
+				Camera(s) & Lens(es): <input type='checkbox' name='cameraconnection' value='" . $data['CameraConnection'] . "'></br>
 
-				<input type='checkbox' name='cameramemory' value='" . $data[''] . "'></br>
+				Camera Connection Leads: <input type='checkbox' name='cameramemory' value='" . $data['CameraMemory'] . "'></br>
 
-				<input type='checkbox' name='cameralanyard' value='" . $data[''] . "'></br>
+				Camera Memory Cards: <input type='checkbox' name='cameralanyard' value='" . $data['CameraLanyard'] . "'></br>
 
-				<input type='checkbox' name='attachmentbolt' value='" . $data[''] . "'></br>
+				Camera to Airframe Lanyard: <input type='checkbox' name='attachmentbolt' value='" . $data['AttachmentBolt'] . "'></br>
 
-				<input type='checkbox' name='multifunctioncharger' value='" . $data[''] . "'></br>
+				Multi Function Battery Charger: <input type='checkbox' name='multifunctioncharger' value='" . $data['MultiFunctionCharger'] . "'></br>
 
-				<input type='checkbox' name='requiredcharger' value='" . $data[''] . "'></br>
+				Required Charger Leads: <input type='checkbox' name='requiredcharger' value='" . $data['RequiredCharger'] . "'></br>
 
-				<input type='checkbox' name='batterychecker' value='" . $data[''] . "'></br>
+				Battery Checker: <input type='checkbox' name='batterychecker' value='" . $data['BatteryChecker'] . "'></br>
 
-				<input type='checkbox' name='screwdrivers' value='" . $data[''] . "'></br>
+				Screwdrivers (Flat / Cross Drive): <input type='checkbox' name='screwdrivers' value='" . $data['ScrewDrivers'] . "'></br>
 
-				<input type='checkbox' name='allenkeys' value='" . $data[''] . "'></br>
+				Allen Keys: <input type='checkbox' name='allenkeys' value='" . $data['AllenKeys'] . "'></br>
 
-				<input type='checkbox' name='pliers' value='" . $data[''] . "'></br>
+				Pliers (Standard / Long Nose): <input type='checkbox' name='pliers' value='" . $data['Pliers'] . "'></br>
 
-				<input type='checkbox' name='cableties' value='" . $data[''] . "'></br>
+				Cable Ties (Various Sizes): <input type='checkbox' name='cableties' value='" . $data['CableTies'] . "'></br>
 
-				<input type='checkbox' name='sidecutters' value='" . $data[''] . "'></br>
+				Side Cutters: <input type='checkbox' name='sidecutters' value='" . $data['SideCutters'] . "'></br>
 
-				<input type='checkbox' name='propellernuts' value='" . $data[''] . "'></br>
+				Nylock Propellers Nuts: <input type='checkbox' name='propellernuts' value='" . $data['PropellerNuts'] . "'></br>
 
-				<input type='checkbox' name='spareprops' value='" . $data[''] . "'></br>
+				Spare Props. (Tractor & Pusher): <input type='checkbox' name='spareprops' value='" . $data['SpareProps'] . "'></br>
 
-				<input type='checkbox' name='socketset' value='" . $data[''] . "'></br>
+				Small Socket Set: <input type='checkbox' name='socketset' value='" . $data['SocketSet'] . "'></br>
 
 				<input type='submit' name='update' value='Update'>
 
