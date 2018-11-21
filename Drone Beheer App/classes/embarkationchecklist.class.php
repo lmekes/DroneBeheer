@@ -18,6 +18,80 @@
 
 		TelemetryReceiver='" . $_POST['telemetryreceiver'] . "',
 
+		Laptop='" . $_POST['laptop'] . "',
+
+		MobilePhone='" . $_POST['mobilephone'] . "',
+
+		Anemometer='" . $_POST['anemometer'] . "',
+
+		FirstAid='" . $_POST['firstaid'] . "',
+
+		HardHat='" . $_POST['hardhat'] . "',
+
+		Radio='" . $_POST['radio'] . "',
+
+		Clothing='" . $_POST['clothing'] . "',
+
+		AirNavigationMap='" . $_POST['airnavigationmap'] . "',
+
+		Checklist='" . $_POST['checklist'] . "',
+
+		Notepad='" . $_POST['notepad'] . "',
+
+		SiteAssessment='" . $_POST['siteassessment'] . "',
+
+		Signs='" . $_POST['signs'] ."',
+
+		FlightBattery='" . $_POST['flightbattery'] ."',
+
+		TransmitterBattery='" . $_POST['transmitterbattery'] . "',
+
+		CameraBattery='" . $_POST['camerabattery'] . "',
+
+		StationBattery='" . $_POST['stationbattery'] . "',
+
+		ChargerBattery='" . $_POST['chargerbattery'] . "',
+
+		PhoneBattery='" . $_POST['phonebattery'] . "',
+
+		Airframe='" . $_POST['airframe'] . "',
+
+		CameraMount='" . $_POST['cameramount'] . "',
+
+		CalibrationPlatform='" . $_POST['calibrationplatform'] . "',
+
+		CameraLens='" . $_POST['cameralens'] . "',
+
+		CameraConnection='" . $_POST['cameraconnection'] . "',
+
+		CameraMemory='" . $_POST['cameramemory'] . "',
+
+		CameraLanyard='" . $_POST['cameralanyard'] . "',
+
+		AttachmentBolt='" . $_POST['attachmentbolt'] . "',
+
+		MultiFunctionCharger='" . $_POST['multifunctioncharger'] . "',
+
+		RequiredCharger='" . $_POST['requiredcharger'] . "',
+
+		BatteryChecker='" . $_POST['batterychecker'] . "',
+
+		Screwdrivers='" . $_POST['screwdrivers'] . "',
+
+		AllenKeys='" . $_POST['allenkeys'] . "',
+
+		Pliers='" . $_POST['pliers'] . "',
+
+		CableTies='" . $_POST['cableties'] . "',
+
+		SideCutters='" . $_POST['sidecutters'] . "',
+
+		PropellerNuts='" . $_POST['propellernuts'] . "',
+
+		SpareProps='" . $_POST['spareprops'] . "',
+
+		SocketSet='" . $_POST['socketset'] . "'
+
 		WHERE Id='" . $_POST['id'] . "'";
 
 		$Conn->query($query);
