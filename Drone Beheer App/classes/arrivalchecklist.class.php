@@ -40,7 +40,7 @@
 		
 		Signs='" . $_POST['signs'] . "' 
 
-		WHERE 'Id'='" . $_POST['id'] . "'";
+		WHERE Id='" . $_POST['id'] . "'";
 
 		$Conn->query($query);
 
