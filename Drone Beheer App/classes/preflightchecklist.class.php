@@ -6,6 +6,50 @@
 
 		$query="UPDATE PreFlightChecklist SET
 
+		NaamStudent='" . $_POST['naamstudent'] . "', 
+
+		Datum='" . $_POST['datum'] . "',
+
+		Airframe='" . $_POST['airframe'] . "',
+
+		FlightBattery='" . $_POST['flightbattery'] . "',
+
+		Transmitters='" . $_POST['transmitters'] . "',
+
+		Camera='" . $_POST['camera'] . "',
+
+		AirframeLevel='" . $_POST['airframelevel'] . "',
+
+		SelfDiagnostic='" . $_POST['selfdiagnostic'] . "',
+
+		Monitor='" . $_POST['monitor'] . "',
+
+		Calibration='" . $_POST['calibration'] . "',
+
+		SaveCalibration='" . $_POST['savecalibration'] . "',
+
+		CameraPlatform='" . $_POST['cameraplatform'] . "',
+
+		TelemetryLink='" . $_POST['telemetrylink'] . "',
+
+		FlightPlan='" . $_POST['flightplan'] . "',
+
+		StartRecording='" . $_POST['startrecording'] . "',
+
+		AircraftAlignment='" . $_POST['aircraftalignment'] . "',
+
+		Crew='" . $_POST['crew'] . "',
+
+		Clearance='" . $_POST['clearance'] . "',
+
+		PowerUp='" . $_POST['powerup'] . "',
+
+		TakeOff='" . $_POST['takeoff'] . "',
+
+		Communication='" . $_POST['communnication'] . "',
+
+		Landing='" . $_POST['landing'] . "' 
+
 		WHERE Id='" . $_POST['id'] . "'";
 
 		$Conn->query($query);
@@ -20,49 +64,65 @@
 
 	function getForm($studentName, $Conn){
 
-		echo "<form action='' method='post'>
+		$result = $Conn->query("SELECT * FROM PreFlightChecklist WHERE NaamStudent = '" . $studentName . "'");
 
-			<input type='hidden' name='id' value='" . $data['Id'] . "'>
+		while ($data = $result->fetch_assoc()) {
 
-			<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+			echo "<form action='' method='post'>
 
-			<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='hidden' name='id' value='" . $data['Id'] . "'>
 
-			Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'>
+				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
 
-			Flight battery: <input type='checkbox' name='flightbattery' value='" . $data['FlightBattery'] . "'>
+				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
 
-			Transmitter(s): <input type='checkbox' name='transmitters' value='" . $data['Transmitters'] . "'>
+				Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
 
-			Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'>
+				Flight battery: <input type='checkbox' name='flightbattery' value='" . $data['FlightBattery'] . "'></br>
 
-			Self diagnostic: <input type='checkbox' name='selfdiagnostic' value='" . $data['SelfDaignostic'] . "'>
+				Transmitter(s): <input type='checkbox' name='transmitters' value='" . $data['Transmitters'] . "'></br>
 
-			Monitor: <input type='checkbox' name='monitorcalibration' value='" . $data['MonitorCalibration'] . "'>
+				Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'></br>
 
-			Save calibration: <input type='checkbox' name='savecalibration' value='" . $data['SaveCalibration'] . "'>
+				Airframe: <input type='checkbox' name='airframelevel' value='" . $data['AirframeLevel'] . "'></br>
 
-			Telemetry link: <input type='checkbox' name='telemetrylink' value='" . $data['TelemetryLink'] . "'>
+				Flight battery: <input type='checkbox' name='connectbattery' value='" . $data['ConnectBattery'] . "'></br>
 
-			Flight plan: <input type='checkbox' name='flightplan' value='" . $data['FlightPlan'] . "'>
+				Self diagnostic: <input type='checkbox' name='selfdiagnostic' value='" . $data['SelfDiagnostic'] . "'></br>
 
-			Aircraft alignment: <input type='checkbox' name='aircraftaligntment' value='" . $data['AircarftAlignment'] . "'>
+				Monitor: <input type='checkbox' name='monitor' value='" . $data['Monitor'] . "'></br>
 
-			Crew, public & client: <input type='checkbox' name='crew' value='" . $data['Crew'] . "'>
+				Calibration: <input type='checkbox' name='calibration' value='" . $data['Calibration'] . "'></br>
 
-			Clearance: <input type='checkbox' name='clearance' value='" . $data['Clearance'] . "'>
+				Save calibration: <input type='checkbox' name='savecalibration' value='" . $data['SaveCalibration'] . "'></br>
 
-			Power up: <input type='checkbox' name='powerup' value='" . $data['PowerUp'] . "'>
+				Camera platform: <input type='checkbox' name='cameraplatform' value='" . $data['CameraPlatform'] . "'></br>
 
-			Take off: <input type='checkbox' name='takeoff' value='" . $data['TakeOff'] . "'>
+				Telemetry link: <input type='checkbox' name='telemetrylink' value='" . $data['TelemetryLink'] . "'></br>
 
-			Communication: <input type='checkbox' name='communnication' value='" . $data['Communication'] . "'>
+				Flight plan: <input type='checkbox' name='flightplan' value='" . $data['FlightPlan'] . "'></br>
 
-			Landing: <input type='checkbox' name='' value='" . $data['Landing'] . "'>
+				Camera: <input type='checkbox' name='startrecording' value='" . $data['StartRecording'] . "'></br>
 
-			<input type='submit' name='update' value='Update'>
+				Aircraft alignment: <input type='checkbox' name='aircraftalignment' value='" . $data['AircraftAlignment'] . "'></br>
 
-		</form>";
+				Crew, public & client: <input type='checkbox' name='crew' value='" . $data['Crew'] . "'></br>
+
+				Clearance: <input type='checkbox' name='clearance' value='" . $data['Clearance'] . "'></br>
+
+				Power up: <input type='checkbox' name='powerup' value='" . $data['PowerUp'] . "'></br>
+
+				Take off: <input type='checkbox' name='takeoff' value='" . $data['TakeOff'] . "'></br>
+
+				Communication: <input type='checkbox' name='communnication' value='" . $data['Communication'] . "'></br>
+
+				Landing: <input type='checkbox' name='' value='" . $data['Landing'] . "'></br>
+
+				<input type='submit' name='update' value='Update'>
+
+			</form>";
+
+		}
 
 	}
 

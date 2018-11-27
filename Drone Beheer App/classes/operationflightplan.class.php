@@ -74,7 +74,7 @@
 
 		MilitaryLowFlying='" . $_POST['militarylowflying'] . "',
 
-		Prohibited='" . $_POST]['prohibited'] . "',
+		Prohibited='" . $_POST['prohibited'] . "',
 
 		NOTAMAffect='" . $_POST['notamaffect'] . "',
 

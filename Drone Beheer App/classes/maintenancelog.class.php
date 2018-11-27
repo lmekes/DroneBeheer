@@ -48,7 +48,7 @@
 
 				<input type='text' name='reason' value='" . $data['Reason'] . "'></br>
 
-				<input type='text' name='workdone' value='" . $data['workDone'] . "'></br>
+				<input type='text' name='workdone' value='" . $data['WorkDone'] . "'></br>
 
 				<input type='text' name='partsreplaced' value='" . $data['PartsReplaced'] . "'></br>
 

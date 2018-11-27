@@ -18,7 +18,7 @@
 
 		Direction='" . $_POST['direction'] . "',
 
-		Obsctruction='" . $_POST['obsctruction'] . "',
+		Obstruction='" . $_POST['obstruction'] . "',
 
 		ViewLimitations='" . $_POST['viewlimitations'] . "',
 
@@ -48,7 +48,7 @@
 
 		OperationalZone='" . $_POST['operationalzone'] . "',
 
-		EmergencyZone='" . $_POST['emergencyzone'] . "',
+		EmergencyArea='" . $_POST['emergencyarea'] . "',
 
 		Holding Area='" . $_POST['holdingarea'] . "'
 
@@ -86,7 +86,7 @@
 
 				<input type='text' name='direction' value='" . $data['Direction'] . "'></br>
 
-				<input type='text' name='obsctruction' value='" . $data['Obsctruction'] . "'></br>
+				<input type='text' name='obstruction' value='" . $data['Obstruction'] . "'></br>
 
 				<input type='text' name='viewlimitations' value='" . $data['ViewLimitations'] . "'></br>
 
@@ -116,7 +116,7 @@
 
 				<input type='text' name='operationalzone' value='" . $data['OperationalZone'] . "'></br>
 
-				<input type='text' name='emergencyzone' value='" . $data['ErmegencyZone'] . "'></br>
+				<input type='text' name='emergencyarea' value='" . $data['EmergencyArea'] . "'></br>
 
 				<input type='text' name='holdingarea' value='" . $data['Holding Area'] . "'></br>
 

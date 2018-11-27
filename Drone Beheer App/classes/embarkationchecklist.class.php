@@ -184,7 +184,7 @@
 
 				Battery Checker: <input type='checkbox' name='batterychecker' value='" . $data['BatteryChecker'] . "'></br>
 
-				Screwdrivers (Flat / Cross Drive): <input type='checkbox' name='screwdrivers' value='" . $data['ScrewDrivers'] . "'></br>
+				Screwdrivers (Flat / Cross Drive): <input type='checkbox' name='screwdrivers' value='" . $data['Screwdrivers'] . "'></br>
 
 				Allen Keys: <input type='checkbox' name='allenkeys' value='" . $data['AllenKeys'] . "'></br>
 

@@ -30,7 +30,7 @@
 
 		Review ='" . $_POST['review'] . "'
 
-		WHERE Id='" . $_POST['id'] . "'"
+		WHERE Id='" . $_POST['id'] . "'";
 
 		$Conn->query($query);
 
@@ -44,37 +44,43 @@
 
 	function getForm($studentName, $Conn){
 
-		echo "<form action='' method='post'>
+		$result = $Conn->query("SELECT * FROM PostFlightChecklist WHERE NaamStudent = '" . $studentName . "'");
 
-			<input type='hidden' name='id' value='" . $data['Id'] . "'>
+		while ($data = $result->fetch_assoc()) {
 
-			<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+			echo "<form action='' method='post'>
 
-			<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='hidden' name='id' value='" . $data['Id'] . "'>
 
-			Touchdown: <input type='checkbox' name='touchdown' value='" . $data['Touchdown'] . "'>
+				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
 
-			Power down: <input type='checkbox' name='powerdown' value='" . $data['PowerDown'] . "'>
+				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
 
-			Removal: <input type='checkbox' name='removal' value='" . $data['Removal'] . "'>
+				Touchdown: <input type='checkbox' name='touchdown' value='" . $data['Touchdown'] . "'></br>
 
-			Data recording: <input type='checkbox' name='datarecording' value='" . $data['DataRecording'] . "'>
+				Power down: <input type='checkbox' name='powerdown' value='" . $data['PowerDown'] . "'></br>
 
-			Transmitter: <input type='checkbox' name='transmitter' value='" . $data['Transmitter'] . "'>
+				Removal: <input type='checkbox' name='removal' value='" . $data['Removal'] . "'></br>
 
-			Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'>
+				Data recording: <input type='checkbox' name='datarecording' value='" . $data['DataRecording'] . "'></br>
 
-			Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'>
+				Transmitter: <input type='checkbox' name='transmitter' value='" . $data['Transmitter'] . "'></br>
 
-			Battery: <input type='checkbox' name='battery' value='" . $data['Battery'] . "'>
+				Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'></br>
 
-			Memory card: <input type='checkbox' name='memorycard' value='" . $data['MemoryCard'] . "'>
+				Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
 
-			Review: <input type='checkbox' name='review' value='" . $data['Review'] . "'>
+				Battery: <input type='checkbox' name='battery' value='" . $data['Battery'] . "'></br>
 
-			<input type='submit' name='update' value='Update'>
+				Memory card: <input type='checkbox' name='memorycard' value='" . $data['MemoryCard'] . "'></br>
 
-		</form>";
+				Review: <input type='checkbox' name='review' value='" . $data['Review'] . "'></br>
+
+				<input type='submit' name='update' value='Update'>
+
+			</form>";
+
+		}
 
 	}
 

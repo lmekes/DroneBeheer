@@ -2,6 +2,8 @@
 
 	include '../functions/dbConnection.php';
 
+	echo "<a href='../index.php'>Terug</a></br>";
+
     echo "<h1>" . $_GET["studentName"] . "</h1>";
 
 	echo "<a href='arrivalchecklist.php?studentName=" . $_GET["studentName"] . "'>Arrival checklist</a></br>
