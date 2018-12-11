@@ -2,85 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query="UPDATE PreSitesSurvey SET
+		$queryString = "UPDATE PreSitesSurvey SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "', 
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM PreSitesSurvey WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "',
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		JobNo='" . $_POST['jobno'] . "',
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		Latitude='" . $_POST['latitude'] . "',
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
 
-		Altitude='" . $_POST['altitude'] . "',
+		// echo $queryString;
 
-		WorkRequired='" . $_POST['workrequired'] . "',
+		// echo "<br><pre>";
 
-		DateWorkRequired='" . $_POST['dateworkrequired'] . "',
+		// var_dump(array_keys($dataRows[0])); testing
 
-		DownloadedToGround='" . $_POST['downloadedtoground'] . "',
+		// echo "</pre>";
 
-		VehicularAccess='" . $_POST['vehicularaccess'] . "',
-
-		Pilot='" . $_POST['pilot'] . "',
-
-		Observer='" . $_POST['observer'] . "',
-
-		UAVRegistration='" . $_POST['uavregistration'] . "',
-
-		Helper1='" . $_POST['helper1'] . "',
-
-		Helper2='" . $_POST['helper2'] . "',
-
-		Airspace='" . $_POST['airspace'] . "',
-
-		Terrain='" . $_POST['terrain'] . "',
-
-		Proximities='" . $_POST['proximities'] . "',
-
-		Hazards='" . $_POST['hazards'] . "',
-
-		Restrictions='" . $_POST['restrictions'] . "',
-
-		Sensitivities='" . $_POST['sensitivities'] . "',
-
-		People='" . $_POST['people'] . "',
-
-		Livestock='" . $_POST['livestock'] . "',
-
-		Permission='" . $_POST['permission'] . "',
-
-		Access='" . $_POST['access'] . "',
-
-		Footpaths='" . $_POST['footpaths'] . "',
-
-		Alternate='" . $_POST['alternate'] . "',
-
-		RiskReduction='" . $_POST['riskreduction'] . "',
-
-		Weather='" . $_POST['weather'] . "',
-
-		NOTAMS='" . $_POST['notams'] . "',
-
-		LocalAirTraffic='" . $_POST['localairtraffic'] . "',
-
-		RegionalAirTraffic='" . $_POST['regionalairtraffic'] . "',
-
-		MilitaryControl='" . $_POST['militarycontrol'] . "',
-
-		NoticeToAirmen='" . $_POST['noticetoairmen'] . "'
-
-		WHERE Id='" . $_POST['id'] . "'";
-
-		$Conn->query($query);
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -90,75 +51,83 @@
 
 		while ($data = $result->fetch_assoc()) {
 
+			foreach($data AS $key => $value){
+				if($value && $key){
+					$checked[$key] = "checked";
+				}else{
+					$checked[$key] = "";
+				}
+			}
+
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='jobno' value='" . $data['JobNo'] . "'></br>
+				<input type='text' name='JobNo' value='" . $data['JobNo'] . "'></br>
 
-				<input type='text' name='latitude' value='" . $data['Latitude'] . "'></br>
+				<input type='text' name='Latitude' value='" . $data['Latitude'] . "'></br>
 
-				<input type='text' name='altitude' value='" . $data['Altitude'] . "'></br>
+				<input type='text' name='Altitude' value='" . $data['Altitude'] . "'></br>
 
-				<input type='text' name='workrequired' value='" . $data['WorkRequired'] . "'></br>
+				<input type='text' name='WorkRequired' value='" . $data['WorkRequired'] . "'></br>
 
-				<input type='text' name='dateworkrequired' value='" . $data['DateWorkRequired'] . "'></br>
+				<input type='text' name='DateWorkRequired' value='" . $data['DateWorkRequired'] . "'></br>
 
-				Downloaded map to groundstation: <input type='checkbox' name='downloadedtoground' value='" . $data['DownloadedToGround'] . "'></br>
+				Downloaded map to groundstation: <input type='checkbox' name='DownloadedToGround' value='1' " . $checked['DownloadedToGround'] . "></br>
 
-				Vehicular access: <input type='checkbox' name='vehicularaccess' value='" . $data['VehicularAccess'] . "'></br>
+				Vehicular access: <input type='checkbox' name='VehicularAccess' value='1' " . $checked['VehicularAccess'] . "></br>
 
-				<input type='text' name='pilot' value='" . $data['Pilot'] . "'></br>
+				<input type='text' name='Pilot' value='" . $data['Pilot'] . "'></br>
 				
-				<input type='text' name='observer' value='" . $data['Observer'] . "'></br>
+				<input type='text' name='Observer' value='" . $data['Observer'] . "'></br>
 				
-				<input type='text' name='uavregistration' value='" . $data['UAVRegistration'] . "'></br>
+				<input type='text' name='UAVRegistration' value='" . $data['UAVRegistration'] . "'></br>
 				
-				<input type='text' name='helper1' value='" . $data['Helper1'] . "'></br>
+				<input type='text' name='Helper1' value='" . $data['Helper1'] . "'></br>
 				
-				<input type='text' name='helper2' value='" . $data['Helper2'] . "'></br>
+				<input type='text' name='Helper2' value='" . $data['Helper2'] . "'></br>
 				
-				<input type='text' name='airspace' value='" . $data['Airspace'] . "'></br>
+				<input type='text' name='Airspace' value='" . $data['Airspace'] . "'></br>
 				
-				<input type='text' name='terrain' value='" . $data['Terrain'] . "'></br>
+				<input type='text' name='Terrain' value='" . $data['Terrain'] . "'></br>
 				
-				<input type='text' name='proximities' value='" . $data['Proximities'] . "'></br>
+				<input type='text' name='Proximities' value='" . $data['Proximities'] . "'></br>
 				
-				<input type='text' name='hazards' value='" . $data['Hazards'] . "'></br>
+				<input type='text' name='Hazards' value='" . $data['Hazards'] . "'></br>
 				
-				<input type='text' name='restrictions' value='" . $data['Restrictions'] . "'></br>
+				<input type='text' name='Restrictions' value='" . $data['Restrictions'] . "'></br>
 				
-				<input type='text' name='sensitivities' value='" . $data['Sensitivities'] . "'></br>
+				<input type='text' name='Sensitivities' value='" . $data['Sensitivities'] . "'></br>
 				
-				<input type='text' name='people' value='" . $data['People'] . "'></br>
+				<input type='text' name='People' value='" . $data['People'] . "'></br>
 				
-				<input type='text' name='livestock' value='" . $data['Livestock'] . "'></br>
+				<input type='text' name='Livestock' value='" . $data['Livestock'] . "'></br>
 				
-				<input type='text' name='permission' value='" . $data['Permission'] . "'></br>
+				<input type='text' name='Permission' value='" . $data['Permission'] . "'></br>
 				
-				<input type='text' name='access' value='" . $data['Access'] . "'></br>
+				<input type='text' name='Access' value='" . $data['Access'] . "'></br>
 				
-				<input type='text' name='footpaths' value='" . $data['Footpaths'] . "'></br>
+				<input type='text' name='Footpaths' value='" . $data['Footpaths'] . "'></br>
 				
-				<input type='text' name='alternate' value='" . $data['Alternate'] . "'></br>
+				<input type='text' name='Alternate' value='" . $data['Alternate'] . "'></br>
 				
-				<input type='text' name='riskreduction' value='" . $data['RiskReduction'] . "'></br>
+				<input type='text' name='RiskReduction' value='" . $data['RiskReduction'] . "'></br>
 				
-				<input type='text' name='weather' value='" . $data['Weather'] . "'></br>
+				<input type='text' name='Weather' value='" . $data['Weather'] . "'></br>
 				
-				<input type='text' name='notams' value='" . $data['NOTAMS'] . "'></br>
+				<input type='text' name='NOTAMS' value='" . $data['NOTAMS'] . "'></br>
 				
-				<input type='text' name='localairtraffic' value='" . $data['LocalAirTraffic'] . "'></br>
+				<input type='text' name='LocalAirTraffic' value='" . $data['LocalAirTraffic'] . "'></br>
 				
-				<input type='text' name='regionalairtraffic' value='" . $data['RegionalAirTraffic'] . "'></br>
+				<input type='text' name='RegionalAirTraffic' value='" . $data['RegionalAirTraffic'] . "'></br>
 				
-				<input type='text' name='militarycontrol' value='" . $data['MilitaryControl'] . "'></br>
+				<input type='text' name='MilitaryControl' value='" . $data['MilitaryControl'] . "'></br>
 				
-				<input type='text' name='noticetoairmen' value='" . $data['NoticeToAirmen'] . "'></br>			
+				<input type='text' name='NoticeToAirmen' value='" . $data['NoticeToAirmen'] . "'></br>			
 
 				<input type='submit' name='update' value='Update'>
 

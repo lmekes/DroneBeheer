@@ -2,47 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query = "UPDATE FlightLog SET
+		$queryString = "UPDATE FlightLog SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "',
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM FlightLog WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "',
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		TakeOffTime='" . $_POST['takeofftime'] . "',
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		LandingTime='" . $_POST['landingtime'] . "',
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
 
-		Duration='" . $_POST['duration'] . "',
+		//echo $queryString;
 
-		Aircraft='" . $_POST['aircraft'] . "',
+		// echo "<br><pre>";
 
-		AircraftSystem='" . $_POST['aircraftsystem'] . "',
+		// var_dump(array_keys($dataRows[0])); testing
 
-		BatteryNo='" . $_POST['batteryno'] . "',
+		// echo "</pre>";
 
-		Pilot='" . $_POST['pilot'] . "',
-
-		Observer='" . $_POST['observer'] . "',
-
-		PayloadOperator='" . $_POST['payloadoperator'] . "',
-
-		Location='" . $_POST['location'] . "',
-
-		FlightPurpose='" . $_POST['flightpurpose'] . "',
-
-		Comment='" . $_POST['comment'] . "'
-
-		WHERE Id='" . $_POST['id'] . "'";
-
-		$Conn->query($query);
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -54,35 +53,35 @@
 
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='takeofftime' value='" . $data['TakeOffTime'] . "'></br>
+				<input type='text' name='TakeOffTime' value='" . $data['TakeOffTime'] . "'></br>
 
-				<input type='text' name='landingtime' value='" . $data['LandingTime'] . "'></br>
+				<input type='text' name='LandingTime' value='" . $data['LandingTime'] . "'></br>
 
-				<input type='text' name='duration' value='" . $data['Duration'] . "'></br>
+				<input type='text' name='Duration' value='" . $data['Duration'] . "'></br>
 
-				<input type='text' name='aircraft' value='" . $data['Aircraft'] . "'></br>
+				<input type='text' name='Aircraft' value='" . $data['Aircraft'] . "'></br>
 
-				<input type='text' name='aircraftsystem' value='" . $data['AircraftSystem'] . "'></br>
+				<input type='text' name='AircraftSystem' value='" . $data['AircraftSystem'] . "'></br>
 
-				<input type='text' name='batteryno' value='" . $data['BatteryNo'] . "'></br>
+				<input type='text' name='BatteryNo' value='" . $data['BatteryNo'] . "'></br>
 
-				<input type='text' name='pilot' value='" . $data['Pilot'] . "'></br>
+				<input type='text' name='Pilot' value='" . $data['Pilot'] . "'></br>
 
-				<input type='text' name='observer' value='" . $data['Observer'] . "'></br>
+				<input type='text' name='Observer' value='" . $data['Observer'] . "'></br>
 
-				<input type='text' name='payloadoperator' value='" . $data['PayloadOperator'] . "'></br>
+				<input type='text' name='PayloadOperator' value='" . $data['PayloadOperator'] . "'></br>
 
-				<input type='text' name='location' value='" . $data['Location'] . "'></br>
+				<input type='text' name='Location' value='" . $data['Location'] . "'></br>
 
-				<input type='text' name='flightpurpose' value='" . $data['FlightPurpose'] . "'></br>
+				<input type='text' name='FlightPurpose' value='" . $data['FlightPurpose'] . "'></br>
 
-				<input type='text' name='comment' value='" . $data['Comment'] . "'></br>
+				<input type='text' name='Comment' value='" . $data['Comment'] . "'></br>
 
 				<input type='submit' name='update' value='Update'>
 

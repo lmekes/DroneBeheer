@@ -2,53 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query = "UPDATE ArrivalChecklist SET 
+		$queryString = "UPDATE ArrivalChecklist SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "', 
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM ArrivalChecklist WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "', 
-		
-		SiteSurvey='" . $_POST['sitesurvey'] . "', 
-		
-		FlightPlan='" . $_POST['flightplan'] . "', 
-		
-		Airframe='" . $_POST['airframe'] . "', 
-		
-		Camera='" . $_POST['camera'] . "', 
-		
-		Connections='" . $_POST['connections'] . "',
-		
-		Propellers='" . $_POST['propellers'] . "', 
-		
-		CalibrationPlatform='" . $_POST['calibrationplatform'] . "', 
-		
-		GroundStation='" . $_POST['groundstation'] . "', 
-		
-		Monitor='" . $_POST['monitor'] . "', 
-		
-		CrewIdBadges='" . $_POST['crewidbadges'] . "', 
-		
-		HardHat='" . $_POST['hardhat'] . "', 
-		
-		Radio='" . $_POST['radio'] . "', 
-		
-		FirstAid='" . $_POST['firstaid'] . "', 
-		
-		Extinguisher='" . $_POST['extinguisher'] . "', 
-		
-		Signs='" . $_POST['signs'] . "' 
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		WHERE Id='" . $_POST['id'] . "'";
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		$Conn->query($query);
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
+
+		//echo $queryString;
+
+		// echo "<br><pre>";
+
+		// var_dump(array_keys($dataRows[0])); testing
+
+		// echo "</pre>";
+
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -57,44 +50,52 @@
 		$result = $Conn->query("SELECT * FROM ArrivalChecklist WHERE NaamStudent = '" . $studentName . "'");
 
 		while ($data = $result->fetch_assoc()) {
+
+			foreach($data AS $key => $value){
+				if($value && $key){
+					$checked[$key] = "checked";
+				}else{
+					$checked[$key] = "";
+				}
+			}
 				
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Site survey: <input type='checkbox' name='sitesurvey' value='" . $data['SiteSurvey'] . "'></br>
+				Site survey: <input type='checkbox' name='SiteSurvey' value='1' " . $checked['SiteSurvey'] . "></br>
 				
-				Flight plan: <input type='checkbox' name='flightplan' value='" . $data['FlightPlan'] . "'></br>
+				Flight plan: <input type='checkbox' name='Flightplan' value='1' " . $checked['FlightPlan'] . "></br>
 				
-				Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
+				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
 				
-				Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'></br>
+				Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></br>
 				
-				Connections: <input type='checkbox' name='connections' value='" . $data['Connections'] . "'></br>
+				Connections: <input type='checkbox' name='Connections' value='1' " . $checked['Connections'] . "></br>
 				
-				Propellers: <input type='checkbox' name='propellers' value='" . $data['Propellers'] . "'></br>
+				Propellers: <input type='checkbox' name='Propellers' value='1' " . $checked['Propellers'] . "></br>
 				
-				Calibration platform: <input type='checkbox' name='calibrationplatform' value='" . $data['CalibrationPlatform'] . "'></br>
+				Calibration platform: <input type='checkbox' name='CalibrationPlatform' value='1' " . $checked['CalibrationPlatform'] . "></br>
 				
-				Ground station: <input type='checkbox' name='groundstation' value='" . $data['GroundStation'] . "'></br>
+				Ground station: <input type='checkbox' name='GroundStation' value='1' " . $checked['GroundStation'] . "></br>
 				
-				Monitor: <input type='checkbox' name='monitor' value='" . $data['Monitor'] . "'></br>
+				Monitor: <input type='checkbox' name='Monitor' value='1' " . $checked['Monitor'] . "></br>
 				
-				Crew id badges: <input type='checkbox' name='crewidbadges' value='" . $data['CrewIdBadges'] . "'></br>
+				Crew id badges: <input type='checkbox' name='CrewIdBadges' value='1' " . $checked['CrewIdBadges'] . "></br>
 				
-				Hard hat: <input type='checkbox' name='hardhat' value='" . $data['HardHat'] . "'></br>
+				Hard hat: <input type='checkbox' name='HardHat' value='1' " . $checked['HardHat'] . "></br>
 				
-				Radio: <input type='checkbox' name='radio' value='" . $data['Radio'] . "'></br>
+				Radio: <input type='checkbox' name='Radio' value='1' " . $checked['Radio'] . "></br>
 				
-				First aid: <input type='checkbox' name='firstaid' value='" . $data['FirstAid'] . "'></br>
+				First aid: <input type='checkbox' name='FirstAid' value='1' " . $checked['FirstAid'] . "></br>
 				
-				Extinguisher: <input type='checkbox' name='extinguisher' value='" . $data['Extinguisher'] . "'></br>
+				Extinguisher: <input type='checkbox' name='Extinguisher' value='1' " . $checked['Extinguisher'] . "></br>
 				
-				Signs: <input type='checkbox' name='signs' value='" . $data['Signs'] . "'></br>
+				Signs: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></br>
 
 				<input type='submit' name='update' value='Update'>
 

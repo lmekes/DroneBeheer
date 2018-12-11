@@ -2,43 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query = "UPDATE PostFlightChecklist SET
+		$queryString = "UPDATE PostFlightChecklist SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "', 
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM PostFlightChecklist WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "',
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		Touchdown='" . $_POST['touchdown'] . "',
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		PowerDown='" . $_POST['powerdown'] . "',
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
 
-		Removal='" . $_POST['removal'] . "',
+		// echo $queryString;
 
-		DataRecording='" . $_POST['datarecording'] . "',
+		// echo "<br><pre>";
 
-		Transmitter='" . $_POST['transmitter'] . "',
+		// var_dump(array_keys($dataRows[0])); testing
 
-		Camera='" . $_POST['camera'] . "',
+		// echo "</pre>";
 
-		Airframe='" . $_POST['airframe'] . "',
-
-		Battery='" . $_POST['battery'] . "',
-
-		MemoryCard='" . $_POST['memorycard'] . "',
-
-		Review ='" . $_POST['review'] . "'
-
-		WHERE Id='" . $_POST['id'] . "'";
-
-		$Conn->query($query);
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -48,38 +51,52 @@
 
 		while ($data = $result->fetch_assoc()) {
 
+			// foreach data fill the array with the key being it's own name to checked or empty
+			foreach($data AS $key => $value){
+				if($value && $key){
+					$checked[$key] = "checked";
+				}else{
+					$checked[$key] = "";
+				}
+			}
+
+			// echo "<pre>"; testing
+			// var_dump($data);
+			// echo "</pre>";
+
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Touchdown: <input type='checkbox' name='touchdown' value='" . $data['Touchdown'] . "'></br>
+				Touchdown: <input type='checkbox' name='Touchdown' value='1' " . $checked['Touchdown'] . "></br>
 
-				Power down: <input type='checkbox' name='powerdown' value='" . $data['PowerDown'] . "'></br>
+				Power down: <input type='checkbox' name='PowerDown' value='1' " . $checked['PowerDown'] . "></br>
 
-				Removal: <input type='checkbox' name='removal' value='" . $data['Removal'] . "'></br>
+				Removal: <input type='checkbox' name='Removal' value='1' " . $checked['Removal'] . "></br>
 
-				Data recording: <input type='checkbox' name='datarecording' value='" . $data['DataRecording'] . "'></br>
+				Data recording: <input type='checkbox' name='DataRecording' value='1' " . $checked['DataRecording'] . "></br>
 
-				Transmitter: <input type='checkbox' name='transmitter' value='" . $data['Transmitter'] . "'></br>
+				Transmitter: <input type='checkbox' name='Transmitter' value='1' " . $checked['Transmitter'] . "></br>
 
-				Camera: <input type='checkbox' name='camera' value='" . $data['Camera'] . "'></br>
+				Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></br>
 
-				Airframe: <input type='checkbox' name='airframe' value='" . $data['Airframe'] . "'></br>
+				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
 
-				Battery: <input type='checkbox' name='battery' value='" . $data['Battery'] . "'></br>
+				Battery: <input type='checkbox' name='Battery' value='1' " . $checked['Battery'] . "></br>
 
-				Memory card: <input type='checkbox' name='memorycard' value='" . $data['MemoryCard'] . "'></br>
+				Memory card: <input type='checkbox' name='MemoryCard' value='1' " . $checked['MemoryCard'] . "></br>
 
-				Review: <input type='checkbox' name='review' value='" . $data['Review'] . "'></br>
+				Review: <input type='checkbox' name='Review' value='1' " . $checked['Review'] . "></br>
 
 				<input type='submit' name='update' value='Update'>
 
 			</form>";
 
+			
 		}
 
 	}

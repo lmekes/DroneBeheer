@@ -2,33 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query = "UPDATE IncidentLog SET
+		$queryString = "UPDATE IncidentLog SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "',
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM IncidentLog WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "',
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		IncidentTime='" . $_POST['incidenttime'] . "',
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		Damage='" . $_POST['damage'] . "',
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
 
-		Details='" . $_POST['details'] . "',
+		//echo $queryString;
 
-		ActionTaken='" . $_POST['actiontaken'] . "',
+		// echo "<br><pre>";
 
-		Notes='" . $_POST['notes'] . "'
+		// var_dump(array_keys($dataRows[0])); testing
 
-		WHERE Id='" . $_POST['id'] . "'";
+		// echo "</pre>";
 
-		$Conn->query($query);
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -40,21 +53,21 @@
 
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='incidenttime' value='" . $data['IncidentTime'] . "'></br>
+				<input type='text' name='IncidentTime' value='" . $data['IncidentTime'] . "'></br>
 
-				<input type='text' name='damage' value='" . $data['Damage'] . "'></br>
+				<input type='text' name='Damage' value='" . $data['Damage'] . "'></br>
 
-				<input type='text' name='details' value='" . $data['Details'] . "'></br>
+				<input type='text' name='Details' value='" . $data['Details'] . "'></br>
 
-				<input type='text' name='actiontaken' value='" . $data['ActionTaken'] . "'></br>
+				<input type='text' name='ActionTaken' value='" . $data['ActionTaken'] . "'></br>
 
-				<input type='text' name='notes' value='" . $data['Notes'] . "'></br>
+				<input type='text' name='Notes' value='" . $data['Notes'] . "'></br>
 
 				<input type='submit' name='update' value='Update'>
 

@@ -2,37 +2,46 @@
 
 	include '../functions/dbConnection.php';
 
-	function updateForm($Conn){
+	function updateForm($Conn, $studentName){
 
-		$query = "UPDATE BatteryChargeLogs SET
+		$queryString = "UPDATE BatteryChargeLogs SET NaamStudent = '" . $_POST['NaamStudent'] . "'";
 
-		NaamStudent='" . $_POST['naamstudent'] . "',
+		// This query to get all the database names for the foreach later
+		$result = $Conn->query("SELECT * FROM BatteryChargeLogs WHERE NaamStudent = '" . $studentName . "'");
+		while ($row = $result->fetch_assoc()){
+			$dataRows[] = $row;
+		}
 
-		Datum='" . $_POST['datum'] . "', 
+		// foreach $_POST add a string to fill in the query ', nextItem = "value" '
+		foreach(array_keys($dataRows[0]) AS $value){
+			if($value != "Id" && $value != "NaamStudent"){
+				if(isset($_POST[$value])){
+					$queryString .= ", " . $value . " = '" . $_POST[$value] . "'";
+				}else{
+					$queryString .= ", " . $value . " = '0'";
+				}
+			}
+		}
 
-		BatteryNo='" . $_POST['batteryno'] . "', 
+		// isset($_POST[$key]) && $key != "id" && $key != "naamstudent" && $key != "update"
 
-		BatteryResidual='" . $_POST['batteryresidual'] . "', 
+		$queryString .= " WHERE id='". $_POST['Id'] ."'"; // secretly the WHERE is red
 
-		ChargeDate='" . $_POST['chargedate'] . "', 
+		//echo $queryString;
 
-		ChargeInput='" . $_POST['chargeinput'] . "', 
+		// echo "<br><pre>";
 
-		FlightDuration='" . $_POST['flightduration'] . "', 
+		// var_dump(array_keys($dataRows[0])); testing
 
-		PreFlight='" . $_POST['preflight'] . "',  
+		// echo "</pre>";
 
-		Notes='" . $_POST['notes'] . "' 
-
-		WHERE Id='" . $_POST['id'] . "'";
-
-		$Conn->query($query);
+		$Conn->query($queryString);
 
 	}
 
 	if(isset($_POST['update'])){
 
-		updateForm($Conn);
+		updateForm($Conn, $_GET['studentName']);
 
 	}
 
@@ -44,25 +53,25 @@
 				
 			echo "<form action='' method='post'>
 
-				<input type='hidden' name='id' value='" . $data['Id'] . "'>
+				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='naamstudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='batteryno' value='" . $data['BatteryNo'] . "'></br>
+				<input type='text' name='BatteryNo' value='" . $data['BatteryNo'] . "'></br>
 
-				<input type='text' name='batteryresidual' value='" . $data['BatteryResidual'] . "'></br>
+				<input type='text' name='BatteryResidual' value='" . $data['BatteryResidual'] . "'></br>
 
-				<input type='text' name='chargedate' value='" . $data['ChargeDate'] . "'></br>
+				<input type='text' name='ChargeDate' value='" . $data['ChargeDate'] . "'></br>
 
-				<input type='text' name='chargeinput' value='" . $data['ChargeInput'] . "'></br>
+				<input type='text' name='ChargeInput' value='" . $data['ChargeInput'] . "'></br>
 
-				<input type='text' name='flightduration' value='" . $data['FlightDuration'] . "'></br>
+				<input type='text' name='FlightDuration' value='" . $data['FlightDuration'] . "'></br>
 
-				<input type='text' name='preflight' value='" . $data['PreFlight'] . "'></br>
+				<input type='text' name='PreFlight' value='" . $data['PreFlight'] . "'></br>
 
-				<input type='text' name='notes' value='" . $data['Notes'] . "'></br>
+				<input type='text' name='Notes' value='" . $data['Notes'] . "'></br>
 
 				<input type='submit' name='update' value='Update'>
 
