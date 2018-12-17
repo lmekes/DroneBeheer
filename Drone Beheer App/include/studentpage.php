@@ -1,6 +1,7 @@
 <?php
 
 	include '../functions/dbConnection.php';
+	include '../functions/config.php';
 
 	echo "<a href='../index.php'>Terug</a></br>";
 

@@ -1,6 +1,7 @@
 <?php
 
 	include '../classes/batterychargelogs.class.php';
+	include '../functions/config.php';
 
 	echo "<a href='studentpage.php?studentName=" . $_GET['studentName'] . "'>Terug</a>";
 
