@@ -50,25 +50,25 @@
 
 		while ($data = $result->fetch_assoc()) {
 
-			echo "<form action='' method='post'>
+			echo "<form class='form-horizontal' action='' method='post'>
 
 				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' class='form-control' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='Reason' value='" . $data['Reason'] . "'></br>
+				<input type='text' class='form-control' name='Reason' value='" . $data['Reason'] . "'></br>
 
-				<input type='text' name='WorkDone' value='" . $data['WorkDone'] . "'></br>
+				<input type='text' class='form-control' name='WorkDone' value='" . $data['WorkDone'] . "'></br>
 
-				<input type='text' name='PartsReplaced' value='" . $data['PartsReplaced'] . "'></br>
+				<input type='text' class='form-control' name='PartsReplaced' value='" . $data['PartsReplaced'] . "'></br>
 
-				<input type='text' name='SystemTested' value='" . $data['SystemTested'] . "'></br>
+				<input type='text' class='form-control' name='SystemTested' value='" . $data['SystemTested'] . "'></br>
 
-				<input type='text' name='Notes' value='" . $data['Notes'] . "'></br>
+				<input type='text' class='form-control' name='Notes' value='" . $data['Notes'] . "'></br>
 
-				<input type='submit' name='update' value='Update'>
+				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 
 			</form>";
 

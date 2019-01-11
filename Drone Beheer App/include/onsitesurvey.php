@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <?php
 
 	include '../classes/onsitesurvey.class.php';
@@ -10,3 +11,4 @@
 	getForm($_GET["studentName"], $Conn);
 
 ?>
+</div>

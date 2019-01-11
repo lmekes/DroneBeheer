@@ -1,9 +1,11 @@
+<div class="container-fluid">
+
+<a href='../index.php'>Terug</a></br>
+
 <?php
 
 	include '../functions/dbConnection.php';
 	include '../functions/config.php';
-
-	echo "<a href='../index.php'>Terug</a></br>";
 
     echo "<h1>" . $_GET["studentName"] . "</h1>";
 
@@ -30,4 +32,5 @@
 	<a href='presitesurvey.php?studentName=" . $_GET["studentName"] . "'>Pre site survey</a></br>";
 
 ?>
+</div>
 

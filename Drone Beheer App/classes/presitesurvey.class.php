@@ -59,77 +59,77 @@
 				}
 			}
 
-			echo "<form action='' method='post'>
+			echo "<form class='form-horizontal' action='' method='post'>
 
 				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' class='form-control' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='JobNo' value='" . $data['JobNo'] . "'></br>
+				<input type='text' class='form-control' name='JobNo' value='" . $data['JobNo'] . "'></br>
 
-				<input type='text' name='Latitude' value='" . $data['Latitude'] . "'></br>
+				<input type='text' class='form-control' name='Latitude' value='" . $data['Latitude'] . "'></br>
 
-				<input type='text' name='Altitude' value='" . $data['Altitude'] . "'></br>
+				<input type='text' class='form-control' name='Altitude' value='" . $data['Altitude'] . "'></br>
 
-				<input type='text' name='WorkRequired' value='" . $data['WorkRequired'] . "'></br>
+				<input type='text' class='form-control' name='WorkRequired' value='" . $data['WorkRequired'] . "'></br>
 
-				<input type='text' name='DateWorkRequired' value='" . $data['DateWorkRequired'] . "'></br>
+				<input type='text' class='form-control' name='DateWorkRequired' value='" . $data['DateWorkRequired'] . "'></br>
 
 				Downloaded map to groundstation: <input type='checkbox' name='DownloadedToGround' value='1' " . $checked['DownloadedToGround'] . "></br>
 
 				Vehicular access: <input type='checkbox' name='VehicularAccess' value='1' " . $checked['VehicularAccess'] . "></br>
 
-				<input type='text' name='Pilot' value='" . $data['Pilot'] . "'></br>
+				<input type='text' class='form-control' name='Pilot' value='" . $data['Pilot'] . "'></br>
 				
-				<input type='text' name='Observer' value='" . $data['Observer'] . "'></br>
+				<input type='text'  class='form-control'name='Observer' value='" . $data['Observer'] . "'></br>
 				
-				<input type='text' name='UAVRegistration' value='" . $data['UAVRegistration'] . "'></br>
+				<input type='text' class='form-control' name='UAVRegistration' value='" . $data['UAVRegistration'] . "'></br>
 				
-				<input type='text' name='Helper1' value='" . $data['Helper1'] . "'></br>
+				<input type='text' class='form-control' name='Helper1' value='" . $data['Helper1'] . "'></br>
 				
-				<input type='text' name='Helper2' value='" . $data['Helper2'] . "'></br>
+				<input type='text' class='form-control' name='Helper2' value='" . $data['Helper2'] . "'></br>
 				
-				<input type='text' name='Airspace' value='" . $data['Airspace'] . "'></br>
+				<input type='text' class='form-control' name='Airspace' value='" . $data['Airspace'] . "'></br>
 				
-				<input type='text' name='Terrain' value='" . $data['Terrain'] . "'></br>
+				<input type='text' class='form-control' name='Terrain' value='" . $data['Terrain'] . "'></br>
 				
-				<input type='text' name='Proximities' value='" . $data['Proximities'] . "'></br>
+				<input type='text' class='form-control' name='Proximities' value='" . $data['Proximities'] . "'></br>
 				
-				<input type='text' name='Hazards' value='" . $data['Hazards'] . "'></br>
+				<input type='text' class='form-control' name='Hazards' value='" . $data['Hazards'] . "'></br>
 				
-				<input type='text' name='Restrictions' value='" . $data['Restrictions'] . "'></br>
+				<input type='text' class='form-control' name='Restrictions' value='" . $data['Restrictions'] . "'></br>
 				
-				<input type='text' name='Sensitivities' value='" . $data['Sensitivities'] . "'></br>
+				<input type='text' class='form-control' name='Sensitivities' value='" . $data['Sensitivities'] . "'></br>
 				
-				<input type='text' name='People' value='" . $data['People'] . "'></br>
+				<input type='text' class='form-control' name='People' value='" . $data['People'] . "'></br>
 				
-				<input type='text' name='Livestock' value='" . $data['Livestock'] . "'></br>
+				<input type='text' class='form-control' name='Livestock' value='" . $data['Livestock'] . "'></br>
 				
-				<input type='text' name='Permission' value='" . $data['Permission'] . "'></br>
+				<input type='text' class='form-control' name='Permission' value='" . $data['Permission'] . "'></br>
 				
-				<input type='text' name='Access' value='" . $data['Access'] . "'></br>
+				<input type='text' class='form-control' name='Access' value='" . $data['Access'] . "'></br>
 				
-				<input type='text' name='Footpaths' value='" . $data['Footpaths'] . "'></br>
+				<input type='text' class='form-control' name='Footpaths' value='" . $data['Footpaths'] . "'></br>
 				
-				<input type='text' name='Alternate' value='" . $data['Alternate'] . "'></br>
+				<input type='text' class='form-control' name='Alternate' value='" . $data['Alternate'] . "'></br>
 				
-				<input type='text' name='RiskReduction' value='" . $data['RiskReduction'] . "'></br>
+				<input type='text' class='form-control' name='RiskReduction' value='" . $data['RiskReduction'] . "'></br>
 				
-				<input type='text' name='Weather' value='" . $data['Weather'] . "'></br>
+				<input type='text' class='form-control' name='Weather' value='" . $data['Weather'] . "'></br>
 				
-				<input type='text' name='NOTAMS' value='" . $data['NOTAMS'] . "'></br>
+				<input type='text' class='form-control' name='NOTAMS' value='" . $data['NOTAMS'] . "'></br>
 				
-				<input type='text' name='LocalAirTraffic' value='" . $data['LocalAirTraffic'] . "'></br>
+				<input type='text' class='form-control' name='LocalAirTraffic' value='" . $data['LocalAirTraffic'] . "'></br>
 				
-				<input type='text' name='RegionalAirTraffic' value='" . $data['RegionalAirTraffic'] . "'></br>
+				<input type='text' class='form-control' name='RegionalAirTraffic' value='" . $data['RegionalAirTraffic'] . "'></br>
 				
-				<input type='text' name='MilitaryControl' value='" . $data['MilitaryControl'] . "'></br>
+				<input type='text' class='form-control' name='MilitaryControl' value='" . $data['MilitaryControl'] . "'></br>
 				
-				<input type='text' name='NoticeToAirmen' value='" . $data['NoticeToAirmen'] . "'></br>			
+				<input type='text' class='form-control' name='NoticeToAirmen' value='" . $data['NoticeToAirmen'] . "'></br>			
 
-				<input type='submit' name='update' value='Update'>
+				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 
 			</form>";
 

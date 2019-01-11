@@ -1,3 +1,6 @@
+<div class='container-fluid'>
+<h1>Studenten</h1>
+
 <?php  
 
 	include 'functions/dbConnection.php';
@@ -7,3 +10,4 @@
 	getStudentNames($Conn);
 
 ?>
+</div>

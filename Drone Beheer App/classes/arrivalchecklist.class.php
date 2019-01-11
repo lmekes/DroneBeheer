@@ -59,13 +59,13 @@
 				}
 			}
 				
-			echo "<form action='' method='post'>
+			echo "<form class='form-horizontal' action='' method='post'>
 
 				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' class='form-control' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
 				Site survey: <input type='checkbox' name='SiteSurvey' value='1' " . $checked['SiteSurvey'] . "></br>
 				
@@ -97,7 +97,7 @@
 				
 				Signs: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></br>
 
-				<input type='submit' name='update' value='Update'>
+				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 
 			</form>";
 

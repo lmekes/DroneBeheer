@@ -51,39 +51,39 @@
 
 		while ($data = $result->fetch_assoc()) {
 
-			echo "<form action='' method='post'>
+			echo "<form class='form-horizontal' action='' method='post'>
 
 				<input type='hidden' name='Id' value='" . $data['Id'] . "'>
 
-				<input type='text' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
+				<input type='text' class='form-control' name='NaamStudent' value='" . $data['NaamStudent'] . "'></br>
 
-				<input type='date' name='Datum' value='" . $data['Datum'] ."'></br>
+				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				<input type='text' name='TakeOffTime' value='" . $data['TakeOffTime'] . "'></br>
+				<input type='text' class='form-control' name='TakeOffTime' value='" . $data['TakeOffTime'] . "'></br>
 
-				<input type='text' name='LandingTime' value='" . $data['LandingTime'] . "'></br>
+				<input type='text' class='form-control' name='LandingTime' value='" . $data['LandingTime'] . "'></br>
 
-				<input type='text' name='Duration' value='" . $data['Duration'] . "'></br>
+				<input type='text' class='form-control' name='Duration' value='" . $data['Duration'] . "'></br>
 
-				<input type='text' name='Aircraft' value='" . $data['Aircraft'] . "'></br>
+				<input type='text' class='form-control' name='Aircraft' value='" . $data['Aircraft'] . "'></br>
 
-				<input type='text' name='AircraftSystem' value='" . $data['AircraftSystem'] . "'></br>
+				<input type='text' class='form-control' name='AircraftSystem' value='" . $data['AircraftSystem'] . "'></br>
 
-				<input type='text' name='BatteryNo' value='" . $data['BatteryNo'] . "'></br>
+				<input type='text' class='form-control' name='BatteryNo' value='" . $data['BatteryNo'] . "'></br>
 
-				<input type='text' name='Pilot' value='" . $data['Pilot'] . "'></br>
+				<input type='text' class='form-control' name='Pilot' value='" . $data['Pilot'] . "'></br>
 
-				<input type='text' name='Observer' value='" . $data['Observer'] . "'></br>
+				<input type='text' class='form-control' name='Observer' value='" . $data['Observer'] . "'></br>
 
-				<input type='text' name='PayloadOperator' value='" . $data['PayloadOperator'] . "'></br>
+				<input type='text' class='form-control' name='PayloadOperator' value='" . $data['PayloadOperator'] . "'></br>
 
-				<input type='text' name='Location' value='" . $data['Location'] . "'></br>
+				<input type='text' class='form-control' name='Location' value='" . $data['Location'] . "'></br>
 
-				<input type='text' name='FlightPurpose' value='" . $data['FlightPurpose'] . "'></br>
+				<input type='text' class='form-control' name='FlightPurpose' value='" . $data['FlightPurpose'] . "'></br>
 
-				<input type='text' name='Comment' value='" . $data['Comment'] . "'></br>
+				<input type='text' class='form-control' name='Comment' value='" . $data['Comment'] . "'></br>
 
-				<input type='submit' name='update' value='Update'>
+				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 
 			</form>";
 
