@@ -77,9 +77,13 @@
 
 				<input type='text' class='form-control' name='DateWorkRequired' value='" . $data['DateWorkRequired'] . "'></br>
 
-				Downloaded map to groundstation: <input type='checkbox' name='DownloadedToGround' value='1' " . $checked['DownloadedToGround'] . "></br>
+				<table class='table table-striped'>
 
-				Vehicular access: <input type='checkbox' name='VehicularAccess' value='1' " . $checked['VehicularAccess'] . "></br>
+					<tr><td>Downloaded map to groundstation: <input type='checkbox' name='DownloadedToGround' value='1' " . $checked['DownloadedToGround'] . "></tr></td>
+
+					<tr><td>Vehicular access: <input type='checkbox' name='VehicularAccess' value='1' " . $checked['VehicularAccess'] . "></tr></td>
+
+				</table>
 
 				<input type='text' class='form-control' name='Pilot' value='" . $data['Pilot'] . "'></br>
 				

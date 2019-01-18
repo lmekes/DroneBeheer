@@ -67,47 +67,51 @@
 
 				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
+				<table class='table table-striped'>
 
-				Flight battery: <input type='checkbox' name='FlightBattery' value='1' " . $checked['FlightBattery'] . "></br>
+				<tr><td>Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></tr></td>
 
-				Transmitter(s): <input type='checkbox' name='Transmitters' value='1' " . $checked['Transmitters'] . "></br>
+				<tr><td>Flight battery: <input type='checkbox' name='FlightBattery' value='1' " . $checked['FlightBattery'] . "></tr></td>
 
-				Camera: <input type='checkbox' name='camera' value='1' " . $checked['Camera'] . "></br>
+				<tr><td>Transmitter(s): <input type='checkbox' name='Transmitters' value='1' " . $checked['Transmitters'] . "></tr></td>
 
-				Airframe: <input type='checkbox' name='Airframelevel' value='1' " . $checked['AirframeLevel'] . "></br>
+				<tr><td>Camera: <input type='checkbox' name='camera' value='1' " . $checked['Camera'] . "></tr></td>
 
-				Flight battery: <input type='checkbox' name='Connectbattery' value='1' " . $checked['ConnectBattery'] . "></br>
+				<tr><td>Airframe: <input type='checkbox' name='Airframelevel' value='1' " . $checked['AirframeLevel'] . "></tr></td>
 
-				Self diagnostic: <input type='checkbox' name='SelfDiagnostic' value='1' " . $checked['SelfDiagnostic'] . "></br>
+				<tr><td>Flight battery: <input type='checkbox' name='Connectbattery' value='1' " . $checked['ConnectBattery'] . "></tr></td>
 
-				Monitor: <input type='checkbox' name='Monitor' value='1' " . $checked['Monitor'] . "></br>
+				<tr><td>Self diagnostic: <input type='checkbox' name='SelfDiagnostic' value='1' " . $checked['SelfDiagnostic'] . "></tr></td>
 
-				Calibration: <input type='checkbox' name='Calibration' value='1' " . $checked['Calibration'] . "></br>
+				<tr><td>Monitor: <input type='checkbox' name='Monitor' value='1' " . $checked['Monitor'] . "></tr></td>
 
-				Save calibration: <input type='checkbox' name='SaveCalibration' value='1' " . $checked['SaveCalibration'] . "></br>
+				<tr><td>Calibration: <input type='checkbox' name='Calibration' value='1' " . $checked['Calibration'] . "></tr></td>
 
-				Camera platform: <input type='checkbox' name='CameraPlatform' value='1' " . $checked['CameraPlatform'] . "></br>
+				<tr><td>Save calibration: <input type='checkbox' name='SaveCalibration' value='1' " . $checked['SaveCalibration'] . "></tr></td>
 
-				Telemetry link: <input type='checkbox' name='TelemetryLink' value='1' " . $checked['TelemetryLink'] . "></br>
+				<tr><td>Camera platform: <input type='checkbox' name='CameraPlatform' value='1' " . $checked['CameraPlatform'] . "></tr></td>
 
-				Flight plan: <input type='checkbox' name='FlightPlan' value='1' " . $checked['FlightPlan'] . "></br>
+				<tr><td>Telemetry link: <input type='checkbox' name='TelemetryLink' value='1' " . $checked['TelemetryLink'] . "></tr></td>
 
-				Camera: <input type='checkbox' name='StartRecording' value='1' " . $checked['StartRecording'] . "></br>
+				<tr><td>Flight plan: <input type='checkbox' name='FlightPlan' value='1' " . $checked['FlightPlan'] . "></tr></td>
 
-				Aircraft alignment: <input type='checkbox' name='AircraftAlignment' value='1' " . $checked['AircraftAlignment'] . "></br>
+				<tr><td>Camera: <input type='checkbox' name='StartRecording' value='1' " . $checked['StartRecording'] . "></tr></td>
 
-				Crew, public & client: <input type='checkbox' name='Crew' value='1' " . $checked['Crew'] . "></br>
+				<tr><td>Aircraft alignment: <input type='checkbox' name='AircraftAlignment' value='1' " . $checked['AircraftAlignment'] . "></tr></td>
 
-				Clearance: <input type='checkbox' name='Clearance' value='1' " . $checked['Clearance'] . "></br>
+				<tr><td>Crew, public & client: <input type='checkbox' name='Crew' value='1' " . $checked['Crew'] . "></tr></td>
 
-				Power up: <input type='checkbox' name='PowerUp' value='1' " . $checked['PowerUp'] . "></br>
+				<tr><td>Clearance: <input type='checkbox' name='Clearance' value='1' " . $checked['Clearance'] . "></tr></td>
 
-				Take off: <input type='checkbox' name='TakeOff' value='1' " . $checked['TakeOff'] . "></br>
+				<tr><td>Power up: <input type='checkbox' name='PowerUp' value='1' " . $checked['PowerUp'] . "></tr></td>
 
-				Communication: <input type='checkbox' name='Communnication' value='1' " . $checked['Communication'] . "></br>
+				<tr><td>Take off: <input type='checkbox' name='TakeOff' value='1' " . $checked['TakeOff'] . "></tr></td>
 
-				Landing: <input type='checkbox' name='Landing' value='1' " . $checked['Landing'] . "></br>
+				<tr><td>Communication: <input type='checkbox' name='Communnication' value='1' " . $checked['Communication'] . "></tr></td>
+
+				<tr><td>Landing: <input type='checkbox' name='Landing' value='1' " . $checked['Landing'] . "></tr></td>
+
+				</table>
 
 				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 

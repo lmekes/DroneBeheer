@@ -31,11 +31,15 @@
 
 		// exit;
 
+		echo "<table class='table table-striped'>";
+
 		while ($data = $result->fetch_assoc()) {
 				
-			echo "<a href='include/studentpage.php?studentName=" . $data['NaamStudent'] . "'>" . $data['NaamStudent'] . "</a></br>";
+			echo "<tr><td><a href='include/studentpage.php?studentName=" . $data['NaamStudent'] . "'>" . $data['NaamStudent'] . "</a></td></tr>";
 
 		}
+
+		echo "</table>";
 		
 	}
 

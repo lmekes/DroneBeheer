@@ -67,91 +67,95 @@
 
 				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Ground Station & Leads: <input type='checkbox' name='GroundStation' value='1' " . $checked['GroundStation'] . "></br>
+				<table class='table table-striped'>
 
-				Camera Monitor & Leads: <input type='checkbox' name='CameraMonitor' value='1' " . $checked['CameraMonitor'] . "></br>
+				<tr><td>Ground Station & Leads: <input type='checkbox' name='GroundStation' value='1' " . $checked['GroundStation'] . "></tr></td>
 
-				A/V Receiver & Leads: <input type='checkbox' name='Receiver' value='1' " . $checked['Receiver'] . "></br>
+				<tr><td>Camera Monitor & Leads: <input type='checkbox' name='CameraMonitor' value='1' " . $checked['CameraMonitor'] . "></tr></td>
 
-				Telemetery Receiver & Leads: <input type='checkbox' name='TelemetryReceiver' value='1' " . $checked['TelemetryReceiver'] . "></br>
+				<tr><td>A/V Receiver & Leads: <input type='checkbox' name='Receiver' value='1' " . $checked['Receiver'] . "></tr></td>
 
-				Laptop & Leads: <input type='checkbox' name='Laptop' value='1' " . $checked['Laptop'] . "></br>
+				<tr><td>Telemetery Receiver & Leads: <input type='checkbox' name='TelemetryReceiver' value='1' " . $checked['TelemetryReceiver'] . "></tr></td>
 
-				Mobile Phone & Emergency No's: <input type='checkbox' name='MobilePhone' value='1' " . $checked['MobilePhone'] . "></br>
+				<tr><td>Laptop & Leads: <input type='checkbox' name='Laptop' value='1' " . $checked['Laptop'] . "></tr></td>
 
-				Anemometer: <input type='checkbox' name='Anemometer' value='1' " . $checked['Anemometer'] . "></br>
+				<tr><td>Mobile Phone & Emergency No's: <input type='checkbox' name='MobilePhone' value='1' " . $checked['MobilePhone'] . "></tr></td>
 
-				First Aid Kit & Extinguisher: <input type='checkbox' name='FirstAid' value='1' " . $checked['FirstAid'] . "></br>
+				<tr><td>Anemometer: <input type='checkbox' name='Anemometer' value='1' " . $checked['Anemometer'] . "></tr></td>
 
-				Crew Identification: <input type='checkbox' name='CrewIdentification' value='1' " . $checked['CrewIdentification'] . "></br>
+				<tr><td>First Aid Kit & Extinguisher: <input type='checkbox' name='FirstAid' value='1' " . $checked['FirstAid'] . "></tr></td>
 
-				Fluorescent Jacket(s) / Hard Hats: <input type='checkbox' name='HardHat' value='1' " . $checked['HardHat'] . "></br>
+				<tr><td>Crew Identification: <input type='checkbox' name='CrewIdentification' value='1' " . $checked['CrewIdentification'] . "></tr></td>
 
-				Two Way Radios: <input type='checkbox' name='Radio' value='1' " . $checked['Radio'] . "></br>
+				<tr><td>Fluorescent Jacket(s) / Hard Hats: <input type='checkbox' name='HardHat' value='1' " . $checked['HardHat'] . "></tr></td>
 
-				Clothing (Boots, Coat, Gloves): <input type='checkbox' name='Clothing' value='1' " . $checked['Clothing'] . "></br>
+				<tr><td>Two Way Radios: <input type='checkbox' name='Radio' value='1' " . $checked['Radio'] . "></tr></td>
 
-				Air Navigation Map: <input type='checkbox' name='AirNavigationMap' value='1' " . $checked['AirNavigationMap'] . "></br>
+				<tr><td>Clothing (Boots, Coat, Gloves): <input type='checkbox' name='Clothing' value='1' " . $checked['Clothing'] . "></tr></td>
 
-				Checklists, Manuals & Logbooks: <input type='checkbox' name='CheckList' value='1' " . $checked['Checklist'] . "></br>
+				<tr><td>Air Navigation Map: <input type='checkbox' name='AirNavigationMap' value='1' " . $checked['AirNavigationMap'] . "></tr></td>
 
-				Notepad & Pens: <input type='checkbox' name='Notepad' value='1' " . $checked['Notepad'] . "></br>
+				<tr><td>Checklists, Manuals & Logbooks: <input type='checkbox' name='CheckList' value='1' " . $checked['Checklist'] . "></tr></td>
 
-				Site Assesment Form: <input type='checkbox' name='SiteAssessment' value='1' " . $checked['SiteAssessment'] . "></br>
+				<tr><td>Notepad & Pens: <input type='checkbox' name='Notepad' value='1' " . $checked['Notepad'] . "></tr></td>
 
-				Signs, Safety Tape, Cones: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></br>
+				<tr><td>Site Assesment Form: <input type='checkbox' name='SiteAssessment' value='1' " . $checked['SiteAssessment'] . "></tr></td>
 
-				Flight Battery Packs: <input type='checkbox' name='FlightBattery' value='1' " . $checked['FlightBattery'] . "></br>
+				<tr><td>Signs, Safety Tape, Cones: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></tr></td>
 
-				Transmitter Battery Packs: <input type='checkbox' name='TransmitterBattery' value='1' " . $checked['TransmitterBattery'] . "></br>
+				<tr><td>Flight Battery Packs: <input type='checkbox' name='FlightBattery' value='1' " . $checked['FlightBattery'] . "></tr></td>
 
-				Camera Battery Packs: <input type='checkbox' name='CameraBattery' value='1' " . $checked['CameraBattery'] . "></br>
+				<tr><td>Transmitter Battery Packs: <input type='checkbox' name='TransmitterBattery' value='1' " . $checked['TransmitterBattery'] . "></tr></td>
 
-				Ground Station Battery: <input type='checkbox' name='StationBattery' value='1' " . $checked['StationBattery'] . "></br>
+				<tr><td>Camera Battery Packs: <input type='checkbox' name='CameraBattery' value='1' " . $checked['CameraBattery'] . "></tr></td>
 
-				Charger Battery Packs: <input type='checkbox' name='ChargerBattery' value='1' " . $checked['ChargerBattery'] . "></br>
+				<tr><td>Ground Station Battery: <input type='checkbox' name='StationBattery' value='1' " . $checked['StationBattery'] . "></tr></td>
 
-				Mobile Phone Battery: <input type='checkbox' name='PhoneBattery' value='1' " . $checked['PhoneBattery'] . "></br>
+				<tr><td>Charger Battery Packs: <input type='checkbox' name='ChargerBattery' value='1' " . $checked['ChargerBattery'] . "></tr></td>
 
-				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
+				<tr><td>Mobile Phone Battery: <input type='checkbox' name='PhoneBattery' value='1' " . $checked['PhoneBattery'] . "></tr></td>
 
-				Camera Mount: <input type='checkbox' name='CameraMount' value='1' " . $checked['CameraMount'] . "></br>
+				<tr><td>Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></tr></td>
 
-				Flight Controller / Transmitter(s): <input type='checkbox' name='Transmitters' value='1' " . $checked['Transmitters'] . "></br>
+				<tr><td>Camera Mount: <input type='checkbox' name='CameraMount' value='1' " . $checked['CameraMount'] . "></tr></td>
 
-				Calibration Platform: <input type='checkbox' name='CalibrationPlatform' value='1' " . $checked['CalibrationPlatform'] . "></br>
+				<tr><td>Flight Controller / Transmitter(s): <input type='checkbox' name='Transmitters' value='1' " . $checked['Transmitters'] . "></tr></td>
 
-				Camera(s) & Lens(es): <input type='checkbox' name='CameraLens' value='1' " . $checked['CameraLens'] . "></br>
+				<tr><td>Calibration Platform: <input type='checkbox' name='CalibrationPlatform' value='1' " . $checked['CalibrationPlatform'] . "></tr></td>
 
-				Camera Connection Leads: <input type='checkbox' name='CameraConnection' value='1' " . $checked['CameraConnection'] . "></br>
+				<tr><td>Camera(s) & Lens(es): <input type='checkbox' name='CameraLens' value='1' " . $checked['CameraLens'] . "></tr></td>
 
-				Camera Memory Cards: <input type='checkbox' name='CameraMemory' value='1' " . $checked['CameraMemory'] . "></br>
+				<tr><td>Camera Connection Leads: <input type='checkbox' name='CameraConnection' value='1' " . $checked['CameraConnection'] . "></tr></td>
 
-				Camera to Airframe Lanyard: <input type='checkbox' name='CameraLanyard' value='1' " . $checked['CameraLanyard'] . "></br>
+				<tr><td>Camera Memory Cards: <input type='checkbox' name='CameraMemory' value='1' " . $checked['CameraMemory'] . "></tr></td>
 
-				Camera Attachment Bolt: <input type='checkbox' name='AttachmentBolt' value='1' " . $checked['AttachmentBolt'] . "></br>
+				<tr><td>Camera to Airframe Lanyard: <input type='checkbox' name='CameraLanyard' value='1' " . $checked['CameraLanyard'] . "></tr></td>
 
-				Multi Function Battery Charger: <input type='checkbox' name='MultiFunctionCharger' value='1' " . $checked['MultiFunctionCharger'] . "></br>
+				<tr><td>Camera Attachment Bolt: <input type='checkbox' name='AttachmentBolt' value='1' " . $checked['AttachmentBolt'] . "></tr></td>
 
-				Required Charger Leads: <input type='checkbox' name='RequiredCharger' value='1' " . $checked['RequiredCharger'] . "></br>
+				<tr><td>Multi Function Battery Charger: <input type='checkbox' name='MultiFunctionCharger' value='1' " . $checked['MultiFunctionCharger'] . "></tr></td>
 
-				Battery Checker: <input type='checkbox' name='BatteryChecker' value='1' " . $checked['BatteryChecker'] . "></br>
+				<tr><td>Required Charger Leads: <input type='checkbox' name='RequiredCharger' value='1' " . $checked['RequiredCharger'] . "></tr></td>
 
-				Screwdrivers (Flat / Cross Drive): <input type='checkbox' name='Screwdrivers' value='1' " . $checked['Screwdrivers'] . "></br>
+				<tr><td>Battery Checker: <input type='checkbox' name='BatteryChecker' value='1' " . $checked['BatteryChecker'] . "></tr></td>
 
-				Allen Keys: <input type='checkbox' name='AllenKeys' value='1' " . $checked['AllenKeys'] . "></br>
+				<tr><td>Screwdrivers (Flat / Cross Drive): <input type='checkbox' name='Screwdrivers' value='1' " . $checked['Screwdrivers'] . "></tr></td>
 
-				Pliers (Standard / Long Nose): <input type='checkbox' name='Pliers' value='1' " . $checked['Pliers'] . "></br>
+				<tr><td>Allen Keys: <input type='checkbox' name='AllenKeys' value='1' " . $checked['AllenKeys'] . "></tr></td>
 
-				Cable Ties (Various Sizes): <input type='checkbox' name='CableTies' value='1' " . $checked['CableTies'] . "></br>
+				<tr><td>Pliers (Standard / Long Nose): <input type='checkbox' name='Pliers' value='1' " . $checked['Pliers'] . "></tr></td>
 
-				Side Cutters: <input type='checkbox' name='SideCutters' value='1' " . $checked['SideCutters'] . "></br>
+				<tr><td>Cable Ties (Various Sizes): <input type='checkbox' name='CableTies' value='1' " . $checked['CableTies'] . "></tr></td>
 
-				Nylock Propellers Nuts: <input type='checkbox' name='PropellerNuts' value='1' " . $checked['PropellerNuts'] . "></br>
+				<tr><td>Side Cutters: <input type='checkbox' name='SideCutters' value='1' " . $checked['SideCutters'] . "></tr></td>
 
-				Spare Props. (Tractor & Pusher): <input type='checkbox' name='SpareProps' value='1' " . $checked['SpareProps'] . "></br>
+				<tr><td>Nylock Propellers Nuts: <input type='checkbox' name='PropellerNuts' value='1' " . $checked['PropellerNuts'] . "></tr></td>
 
-				Small Socket Set: <input type='checkbox' name='SocketSet' value='1' " . $checked['SocketSet'] . "></br>
+				<tr><td>Spare Props. (Tractor & Pusher): <input type='checkbox' name='SpareProps' value='1' " . $checked['SpareProps'] . "></tr></td>
+
+				<tr><td>Small Socket Set: <input type='checkbox' name='SocketSet' value='1' " . $checked['SocketSet'] . "></tr></td>
+
+				</table>
 
 				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 

@@ -67,35 +67,39 @@
 
 				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Site survey: <input type='checkbox' name='SiteSurvey' value='1' " . $checked['SiteSurvey'] . "></br>
+				<table class='table table-striped'>
+
+				<tr><td>Site survey: <input type='checkbox' name='SiteSurvey' value='1' " . $checked['SiteSurvey'] . "></tr></td>
 				
-				Flight plan: <input type='checkbox' name='Flightplan' value='1' " . $checked['FlightPlan'] . "></br>
+				<tr><td>Flight plan: <input type='checkbox' name='Flightplan' value='1' " . $checked['FlightPlan'] . "></tr></td>
 				
-				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
+				<tr><td>Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></tr></td>
 				
-				Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></br>
+				<tr><td>Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></tr></td>
 				
-				Connections: <input type='checkbox' name='Connections' value='1' " . $checked['Connections'] . "></br>
+				<tr><td>Connections: <input type='checkbox' name='Connections' value='1' " . $checked['Connections'] . "></tr></td>
 				
-				Propellers: <input type='checkbox' name='Propellers' value='1' " . $checked['Propellers'] . "></br>
+				<tr><td>Propellers: <input type='checkbox' name='Propellers' value='1' " . $checked['Propellers'] . "></tr></td>
 				
-				Calibration platform: <input type='checkbox' name='CalibrationPlatform' value='1' " . $checked['CalibrationPlatform'] . "></br>
+				<tr><td>Calibration platform: <input type='checkbox' name='CalibrationPlatform' value='1' " . $checked['CalibrationPlatform'] . "></tr></td>
 				
-				Ground station: <input type='checkbox' name='GroundStation' value='1' " . $checked['GroundStation'] . "></br>
+				<tr><td>Ground station: <input type='checkbox' name='GroundStation' value='1' " . $checked['GroundStation'] . "></tr></td>
 				
-				Monitor: <input type='checkbox' name='Monitor' value='1' " . $checked['Monitor'] . "></br>
+				<tr><td>Monitor: <input type='checkbox' name='Monitor' value='1' " . $checked['Monitor'] . "></tr></td>
 				
-				Crew id badges: <input type='checkbox' name='CrewIdBadges' value='1' " . $checked['CrewIdBadges'] . "></br>
+				<tr><td>Crew id badges: <input type='checkbox' name='CrewIdBadges' value='1' " . $checked['CrewIdBadges'] . "></tr></td>
 				
-				Hard hat: <input type='checkbox' name='HardHat' value='1' " . $checked['HardHat'] . "></br>
+				<tr><td>Hard hat: <input type='checkbox' name='HardHat' value='1' " . $checked['HardHat'] . "></tr></td>
 				
-				Radio: <input type='checkbox' name='Radio' value='1' " . $checked['Radio'] . "></br>
+				<tr><td>Radio: <input type='checkbox' name='Radio' value='1' " . $checked['Radio'] . "></tr></td>
 				
-				First aid: <input type='checkbox' name='FirstAid' value='1' " . $checked['FirstAid'] . "></br>
+				<tr><td>First aid: <input type='checkbox' name='FirstAid' value='1' " . $checked['FirstAid'] . "></tr></td>
 				
-				Extinguisher: <input type='checkbox' name='Extinguisher' value='1' " . $checked['Extinguisher'] . "></br>
+				<tr><td>Extinguisher: <input type='checkbox' name='Extinguisher' value='1' " . $checked['Extinguisher'] . "></tr></td>
 				
-				Signs: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></br>
+				<tr><td>Signs: <input type='checkbox' name='Signs' value='1' " . $checked['Signs'] . "></tr></td>
+
+				</table>
 
 				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 

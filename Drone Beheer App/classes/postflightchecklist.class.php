@@ -72,25 +72,29 @@
 
 				<input type='date' class='form-control' name='Datum' value='" . $data['Datum'] ."'></br>
 
-				Touchdown: <input type='checkbox' name='Touchdown' value='1' " . $checked['Touchdown'] . "></br>
+				<table class='table table-striped'>
 
-				Power down: <input type='checkbox' name='PowerDown' value='1' " . $checked['PowerDown'] . "></br>
+				<tr><td>Touchdown: <input type='checkbox' name='Touchdown' value='1' " . $checked['Touchdown'] . "></tr></td>
 
-				Removal: <input type='checkbox' name='Removal' value='1' " . $checked['Removal'] . "></br>
+				<tr><td>Power down: <input type='checkbox' name='PowerDown' value='1' " . $checked['PowerDown'] . "></tr></td>
 
-				Data recording: <input type='checkbox' name='DataRecording' value='1' " . $checked['DataRecording'] . "></br>
+				<tr><td>Removal: <input type='checkbox' name='Removal' value='1' " . $checked['Removal'] . "></tr></td>
 
-				Transmitter: <input type='checkbox' name='Transmitter' value='1' " . $checked['Transmitter'] . "></br>
+				<tr><td>Data recording: <input type='checkbox' name='DataRecording' value='1' " . $checked['DataRecording'] . "></tr></td>
 
-				Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></br>
+				<tr><td>Transmitter: <input type='checkbox' name='Transmitter' value='1' " . $checked['Transmitter'] . "></tr></td>
 
-				Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></br>
+				<tr><td>Camera: <input type='checkbox' name='Camera' value='1' " . $checked['Camera'] . "></tr></td>
 
-				Battery: <input type='checkbox' name='Battery' value='1' " . $checked['Battery'] . "></br>
+				<tr><td>Airframe: <input type='checkbox' name='Airframe' value='1' " . $checked['Airframe'] . "></tr></td>
 
-				Memory card: <input type='checkbox' name='MemoryCard' value='1' " . $checked['MemoryCard'] . "></br>
+				<tr><td>Battery: <input type='checkbox' name='Battery' value='1' " . $checked['Battery'] . "></tr></td>
 
-				Review: <input type='checkbox' name='Review' value='1' " . $checked['Review'] . "></br>
+				<tr><td>Memory card: <input type='checkbox' name='MemoryCard' value='1' " . $checked['MemoryCard'] . "></tr></td>
+
+				<tr><td>Review: <input type='checkbox' name='Review' value='1' " . $checked['Review'] . "></tr></td>
+
+				</table>
 
 				<input type='submit' class='btn btn-primary' name='update' value='Update'>
 
